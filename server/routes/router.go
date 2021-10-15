@@ -6,13 +6,14 @@ import (
 )
 
 func ConfigRoutes(router *gin.Engine) *gin.Engine {
-	main := router.Group("api")
-	{
-		tarefas := main.Group("tarefas")
+
+		tarefas := router.Group("tarefas")
 		{
+			tarefas.GET("/:id", controllers.DetalheTarefa)
 			tarefas.GET("/", controllers.ExibirTarefas)
+			tarefas.POST("/", controllers.CriarTarefa)
+			tarefas.DELETE("/:id", controllers.DeletarTarefa)
 		}
-	}
 
 	return router
 	
