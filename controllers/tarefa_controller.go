@@ -100,7 +100,7 @@ func DeletarTarefa(c *gin.Context){
 	c.Status(204)
 }
 
-func editarTarefa(c *gin.Context){
+func EditarTarefa(c *gin.Context){
 	db := database.GetDatabase()
 
 	var tarefa models.Tarefa
