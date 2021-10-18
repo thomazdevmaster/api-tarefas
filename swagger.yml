@@ -1,0 +1,118 @@
+openapi: 3.0.0
+info:
+  title: API tarefas
+  description: "API para controlar tarefas, resultado do trabalho da
+  disciplina \n
+  GCC129 - Sistemas Distribuídos UFLA 2021/1"
+  version: 1.0.0
+  contact:
+    name: Thomaz Flanklin de Souza Jorge
+    email: thomaz.jorge@estudante.ufla.br
+  license:
+    name: "Licença: GPLv3"
+    url: https://www.gnu.org/licenses/gpl-3.0.pt-br.html
+servers: 
+  - url: https://virtserver.swaggerhub.com/thomaz/tarefas/0.0.1
+  - url: http://localhost:5000
+paths:
+  /tarefas:
+    get:
+      summary: Recupera todas as tarefas
+      responses:
+        200:
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Tarefas"
+    post:
+      description: Criar nova tarefa
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                descricao:
+                  type: string
+                prazo:
+                  type: string
+                completa:
+                  type: boolean
+      responses:
+        201:
+          description: "Sucesso"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Tarefa"
+  /tarefas/{id}:
+    parameters: 
+      - name: id
+        in: path
+        schema:
+          type: integer
+        required: true
+    get:
+      summary: Recupera uma tarefa pelo id
+      responses:
+        200:
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Tarefa"
+        404:
+          description: Tarefa não encontrada
+          content:
+            application/json:
+              example: "Not Found"
+    put:
+      summary: Altera uma tarefa pelo id
+      responses:
+        200:
+          description: "Sucesso"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Tarefa"
+        404:
+          description: Tarefa não encontrada
+          content:
+            application/json:
+              example: "Not Found"
+    delete:
+      summary: Apaga uma tarefa pelo id
+      responses:
+        200:
+          description: "Sucesso"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Tarefa"
+        404:
+          description: Tarefa não encontrada
+          content:
+            application/json:
+              example: "Not Found"
+components:
+  schemas:
+    Tarefa:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: uint
+          minimum: 1
+        descricao:
+          type: string
+        prazo:
+          type: string
+          format: date-time
+        completa:
+          type: boolean
+    Tarefas:
+      type: array
+      items:
+        $ref: "#/components/schemas/Tarefa"
+    
