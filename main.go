@@ -6,8 +6,12 @@ import (
 )
 
 func main(){
+	// Iniciando banco de dados
 	database.StartDB()
+
+	// Instancia servidor
 	server := server.NewServer()
 
+	// Sobe api
 	server.Run()
 }

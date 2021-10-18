@@ -20,6 +20,7 @@ func NewServer() Server {
 }
 
 func (s *Server) Run() {
+	// Define as rotas
 	router := routes.ConfigRoutes(s.server)
 
 	log.Print("servidor rodando na porta: ", s.port)

@@ -6,6 +6,7 @@ import (
 	// "gorm.io/gorm"
 )
 
+// Struct do tipo Tarefa
 type Tarefa struct {
 	ID        int64     `json:"id" gorm:"primaryKey";autoIncrement:true`
 	Descricao string    `json:"descricao"`
