@@ -17,7 +17,8 @@ func ConfigRoutes(router *gin.Engine) *gin.Engine {
 		tarefas.DELETE("/:id", controllers.DeletarTarefa)
 		tarefas.PUT("/:id", controllers.EditarTarefa)
 	}
-
+	router.GET("/", controllers.Inicio)
+	
 	return router
 
 }
