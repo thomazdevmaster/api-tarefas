@@ -1,3 +1,3 @@
-# nothing
-go mod init
-go get github.com/gin-gonic/gin
+# # nothing
+# go mod init
+# go get github.com/gin-gonic/gin
