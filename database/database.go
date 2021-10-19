@@ -2,6 +2,7 @@ package database
 
 import (
 	"log"
+	"os"
 	"time"
 
 	"api-go.com/mod/database/migrations"
@@ -14,8 +15,8 @@ var db *gorm.DB
 
 func StartDB() {
 	// parametros para conectar no banco
-	str := "host=localhost port=25432 user=admin dbname=api-tarefas password=golang"
-	// str:= "DATABASE_URL"
+	// str := "host=localhost port=25432 user=admin dbname=api-tarefas password=golang"
+	str:= os.Getenv("DATABASE_URL")
 
 	// Abrindo a conexão
 	database, err := gorm.Open(postgres.Open(str), &gorm.Config{})
