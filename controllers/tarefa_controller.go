@@ -1,12 +1,18 @@
 package controllers
 
 import (
+	"fmt"
 	"strconv"
 
-	"github.com/gin-gonic/gin"
 	"api-go.com/mod/database"
 	"api-go.com/mod/models"
+	"github.com/gin-gonic/gin"
 )
+
+func Inicio(c *gin.Context){
+	// Banco
+	fmt.Printf("c: %v\n", c)
+}
 
 // Exibe todas as tarefas
 func ExibirTarefas(c *gin.Context){
