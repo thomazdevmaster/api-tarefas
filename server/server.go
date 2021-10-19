@@ -14,9 +14,9 @@ type Server struct {
 }
 
 func NewServer() Server {
-	return Server {
+	return Server{
+		port:   os.Getenv("PORT"),
 		// port: "5000",
-		port: os.Getenv("PORT"),
 		server: gin.Default(),
 	}
 }
