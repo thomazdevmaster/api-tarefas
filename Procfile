@@ -1,2 +1,2 @@
 Procrelease: ./release-task.sh
-web: ./bin/API-TAREFAS-THOMAZSIUFLA
+web: ./bin/api-tarefas
