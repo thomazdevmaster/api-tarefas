@@ -1,1 +1,2 @@
 # nothing
+go mod init
