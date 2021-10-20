@@ -1,1 +1,1 @@
-web: ./bin/api-tarefas
+web: ./bin/api-tarefas-thomazsiufla
