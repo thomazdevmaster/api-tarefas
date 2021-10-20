@@ -116,17 +116,26 @@ func DeletarTarefa(c *gin.Context) {
 
 	db := database.GetDatabase()
 
+	err = db.First(&models.Tarefa{}, newid).Error
 	// procura e deleta do banco alguma tarefa com id igual
+	err = db.First(&models.Tarefa{}, newid).Error
+	if err != nil {
+		c.JSON(404, gin.H{
+			"error": "ID não existe",
+		})
+		return
+	}
+
 	err = db.Delete(&models.Tarefa{}, newid).Error
 	if err != nil {
 		c.JSON(404, gin.H{
-			"error": "Not Found",
+			"error": "Falha ao deletar Tarefa",
 		})
 		return
 	}
 
 	c.JSON(204, gin.H{
-		"Message":"Sucesso no delete",
+		"SUCESSO": "Tarefa apagada",
 	})
 }
 
@@ -138,7 +147,7 @@ func EditarTarefa(c *gin.Context) {
 	newid, err := strconv.Atoi(id)
 	if err != nil {
 		c.JSON(404, gin.H{
-			"error": "Not Found",
+			"error": "id não existe",
 		})
 		return
 	}
@@ -152,7 +161,7 @@ func EditarTarefa(c *gin.Context) {
 	err = db.First(&tarefa, newid).Error
 	if err != nil {
 		c.JSON(404, gin.H{
-			"error": "Not Found",
+			"error": "Tarefa não encontrada",
 		})
 		return
 	}
@@ -167,7 +176,10 @@ func EditarTarefa(c *gin.Context) {
 		})
 		return
 	}
-	tarefa2 = tarefa
+
+	tarefa.Descricao = tarefa2.Descricao
+	tarefa.Prazo = tarefa2.Prazo
+	tarefa.Completa = tarefa2.Completa
 
 	err = db.Save(&tarefa).Error
 
