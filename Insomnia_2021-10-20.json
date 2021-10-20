@@ -1,0 +1,500 @@
+{
+    "_type": "export",
+    "__export_format": 4,
+    "__export_date": "2021-10-20T14:46:03.362Z",
+    "__export_source": "insomnia.desktop.app:v2021.5.3",
+    "resources": [
+        {
+            "_id": "req_8513b5dc45b64a6fad66241a14d9c09b",
+            "parentId": "fld_8f60151e362d416fb0e26fcab3cb5594",
+            "modified": 1634693911832,
+            "created": 1634691898887,
+            "url": "http://localhost:5000/tarefas/3",
+            "name": "Recupera tarefa pelo id",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634684929262.5,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "fld_8f60151e362d416fb0e26fcab3cb5594",
+            "parentId": "wrk_49b1572d25bf4b68ab3afaf382aa10bf",
+            "modified": 1634693763495,
+            "created": 1634693763495,
+            "name": "localhost",
+            "description": "",
+            "environment": {},
+            "environmentPropertyOrder": null,
+            "metaSortKey": -1634693763495,
+            "_type": "request_group"
+        },
+        {
+            "_id": "wrk_49b1572d25bf4b68ab3afaf382aa10bf",
+            "parentId": null,
+            "modified": 1634676077216,
+            "created": 1634676077216,
+            "name": "api-golang",
+            "description": "",
+            "scope": "collection",
+            "_type": "workspace"
+        },
+        {
+            "_id": "req_2304244fd38e43cb82b04f0e9c67ac4c",
+            "parentId": "fld_8f60151e362d416fb0e26fcab3cb5594",
+            "modified": 1634693920180,
+            "created": 1634676094829,
+            "url": "http://localhost:5000/tarefas/",
+            "name": "Recupera lista de tarefas",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634684929237.5,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_3c114d7e478041fdb2a77382a2aa1d36",
+            "parentId": "fld_8f60151e362d416fb0e26fcab3cb5594",
+            "modified": 1634695130159,
+            "created": 1634692005929,
+            "url": "http://localhost:5000/tarefas/7",
+            "name": "Apaga tarefa pelo id",
+            "description": "",
+            "method": "DELETE",
+            "body": {
+                "mimeType": "application/json",
+                "text": ""
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_feaed9b04b4d4569a70b98f4bad182d8"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1634684929225,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_baa76def5af94aa9b624ffb39c894894",
+            "parentId": "fld_8f60151e362d416fb0e26fcab3cb5594",
+            "modified": 1634694578848,
+            "created": 1634691927207,
+            "url": "http://localhost:5000/tarefas/8",
+            "name": "Altera tarefa pelo id",
+            "description": "",
+            "method": "PUT",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n  \"descricao\": \"Tarefa sem nome\",\n  \"prazo\": \"2021-10-19T20:45:03.822Z\",\n  \"completa\": false\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_feaed9b04b4d4569a70b98f4bad182d8"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1634684929212.5,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_4b087fd2cd674ce7b6f6347fe51b3e27",
+            "parentId": "fld_8f60151e362d416fb0e26fcab3cb5594",
+            "modified": 1634693936691,
+            "created": 1634676155477,
+            "url": "http://localhost:5000/tarefas/",
+            "name": "Cadastra tarefa",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n  \"descricao\": \"Nome da tarefa\",\n  \"prazo\": \"2021-10-19T20:45:03.822Z\",\n  \"completa\": true\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_fe1dca19b4f54eb0bbdc08e06891c816"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1634684929162.5,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_72024c5a8c714fd8ba11b3b97f0a0606",
+            "parentId": "fld_ab0a0c87a41645c783a06863fe1e5c72",
+            "modified": 1634693850282,
+            "created": 1634693850282,
+            "url": "https://api-tarefas2.herokuapp.com/tarefas/3",
+            "name": "Recupera tarefa pelo id",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634684929262.5,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "fld_ab0a0c87a41645c783a06863fe1e5c72",
+            "parentId": "wrk_49b1572d25bf4b68ab3afaf382aa10bf",
+            "modified": 1634693850271,
+            "created": 1634693850271,
+            "name": "Heroku",
+            "description": "",
+            "environment": {},
+            "environmentPropertyOrder": null,
+            "metaSortKey": -1634693763445,
+            "_type": "request_group"
+        },
+        {
+            "_id": "req_653958cf30bf4e1c97fbba3e6b982b0f",
+            "parentId": "fld_ab0a0c87a41645c783a06863fe1e5c72",
+            "modified": 1634693850274,
+            "created": 1634693850274,
+            "url": "https://api-tarefas2.herokuapp.com/tarefas/",
+            "name": "Recupera lista de tarefas",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634684929237.5,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_226f1efb375a4833864fea0529e21d3a",
+            "parentId": "fld_ab0a0c87a41645c783a06863fe1e5c72",
+            "modified": 1634693850287,
+            "created": 1634693850287,
+            "url": "https://api-tarefas2.herokuapp.com/tarefas/20",
+            "name": "Apaga tarefa pelo id",
+            "description": "",
+            "method": "DELETE",
+            "body": {
+                "mimeType": "application/json",
+                "text": ""
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_feaed9b04b4d4569a70b98f4bad182d8"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1634684929225,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_d664fef4ac0245b285ab42192bfa254a",
+            "parentId": "fld_ab0a0c87a41645c783a06863fe1e5c72",
+            "modified": 1634693850284,
+            "created": 1634693850284,
+            "url": "https://api-tarefas2.herokuapp.com/tarefas/21",
+            "name": "Altera tarefa pelo id",
+            "description": "",
+            "method": "PUT",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n  \"descricao\": \"Tarefa sem nome\",\n  \"prazo\": \"2021-10-19T20:45:03.822Z\",\n  \"completa\": false\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_feaed9b04b4d4569a70b98f4bad182d8"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1634684929212.5,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_6029c8288cc349398a5a415ecd85659b",
+            "parentId": "fld_ab0a0c87a41645c783a06863fe1e5c72",
+            "modified": 1634693850280,
+            "created": 1634693850280,
+            "url": "https://api-tarefas2.herokuapp.com/tarefas/",
+            "name": "Cadastra tarefa",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n  \"descricao\": \"Nome da tarefa\",\n  \"prazo\": \"2021-10-19T20:45:03.822Z\",\n  \"completa\": true\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_fe1dca19b4f54eb0bbdc08e06891c816"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1634684929162.5,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_2b38b13e35e14ad8a646cca442c93325",
+            "parentId": "wrk_49b1572d25bf4b68ab3afaf382aa10bf",
+            "modified": 1634696384759,
+            "created": 1634693861871,
+            "url": "https://api-tarefas2.herokuapp.com/tarefas/20",
+            "name": "Recupera tarefa pelo id",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634693763395,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_828aaa5365c44a4c9e41f627afd677e3",
+            "parentId": "wrk_49b1572d25bf4b68ab3afaf382aa10bf",
+            "modified": 1634693875649,
+            "created": 1634693873852,
+            "url": "https://api-tarefas2.herokuapp.com/tarefas/",
+            "name": "Recupera lista de tarefas",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634693763345,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_5d0e7aa293d240ab83b76bd6f71d6fda",
+            "parentId": "wrk_49b1572d25bf4b68ab3afaf382aa10bf",
+            "modified": 1634737741940,
+            "created": 1634693886585,
+            "url": "https://api-tarefas2.herokuapp.com/tarefas/23",
+            "name": "Altera tarefa pelo id",
+            "description": "",
+            "method": "PUT",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n  \"descricao\": \"tarefa alterada\",\n  \"prazo\": \"2021-10-19T20:45:03.822Z\",\n  \"completa\": false\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_feaed9b04b4d4569a70b98f4bad182d8"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1634693763320,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_cbc8689c08694933b1a7373621614911",
+            "parentId": "wrk_49b1572d25bf4b68ab3afaf382aa10bf",
+            "modified": 1634737654185,
+            "created": 1634693880380,
+            "url": "https://api-tarefas2.herokuapp.com/tarefas/24",
+            "name": "Apaga tarefa pelo id",
+            "description": "",
+            "method": "DELETE",
+            "body": {
+                "mimeType": "application/json",
+                "text": ""
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_feaed9b04b4d4569a70b98f4bad182d8"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1634693763295,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_33d7d607cab64c6991be4523058a01e6",
+            "parentId": "wrk_49b1572d25bf4b68ab3afaf382aa10bf",
+            "modified": 1634696466446,
+            "created": 1634693894463,
+            "url": "https://api-tarefas2.herokuapp.com/tarefas/",
+            "name": "Cadastra tarefa",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"descricao\": \"Nome da tarefa\",\n\t\"prazo\": \"2021-10-19T20:45:03.822Z\",\n\t\"completa\": true\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_fe1dca19b4f54eb0bbdc08e06891c816"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1634693763245,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "env_d785e8033da980bd3c6f86c5511e138f6d0effc5",
+            "parentId": "wrk_49b1572d25bf4b68ab3afaf382aa10bf",
+            "modified": 1634676077233,
+            "created": 1634676077233,
+            "name": "Base Environment",
+            "data": {},
+            "dataPropertyOrder": null,
+            "color": null,
+            "isPrivate": false,
+            "metaSortKey": 1634676077233,
+            "_type": "environment"
+        },
+        {
+            "_id": "jar_d785e8033da980bd3c6f86c5511e138f6d0effc5",
+            "parentId": "wrk_49b1572d25bf4b68ab3afaf382aa10bf",
+            "modified": 1634676077241,
+            "created": 1634676077241,
+            "name": "Default Jar",
+            "cookies": [],
+            "_type": "cookie_jar"
+        },
+        {
+            "_id": "spc_69e7c9a465db429f9f821c86a19762b8",
+            "parentId": "wrk_49b1572d25bf4b68ab3afaf382aa10bf",
+            "modified": 1634676077222,
+            "created": 1634676077222,
+            "fileName": "api-golang",
+            "contents": "",
+            "contentType": "yaml",
+            "_type": "api_spec"
+        }
+    ]
+}
