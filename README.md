@@ -17,7 +17,7 @@
 [![logo swagger](https://emojis.slackmojis.com/emojis/images/1582769394/7925/swagger.png?1582769394)Documentação Swagger](https://app.swaggerhub.com/apis-docs/ThomazSIUFLA/API-TAREFAS-ThomazSIUFLA/1.0.1)
 
 ### API-Disponível
-A API encontra-se disponível e livre para uso no heroku
+A API encontra-se disponível e livre para uso no heroku, inclusive com banco de dados postgres
 
 ## [ ![logo heroku](https://emojis.slackmojis.com/emojis/images/1465929657/511/heroku.png?1465929657) API- heroku](https://api-tarefas2.herokuapp.com/tarefas/)
 
