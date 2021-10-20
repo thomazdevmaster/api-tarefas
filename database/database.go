@@ -15,9 +15,11 @@ var db *gorm.DB
 
 func StartDB() {
 	// parametros para conectar no banco
-	// str := "host=localhost port=25432 user=admin dbname=api-tarefas password=golang"
 	str:= os.Getenv("DATABASE_URL") 
 
+	if str == ""{
+		str = "host=localhost port=25432 user=admin dbname=api-tarefas password=golang"
+	}
 	// Abrindo a conexão
 	database, err := gorm.Open(postgres.Open(str), &gorm.Config{})
 

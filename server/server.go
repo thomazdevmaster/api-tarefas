@@ -14,8 +14,13 @@ type Server struct {
 }
 
 func NewServer() Server {
+	porta := os.Getenv("PORT")
+
+	if porta == "" {
+		porta = "5000"
+	}
 	return Server{
-		port:   os.Getenv("PORT"),
+		port:   porta,
 		// port: "5000",
 		server: gin.Default(),
 	}
