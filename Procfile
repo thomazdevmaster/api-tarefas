@@ -1,1 +1,1 @@
-web: ./bin/api-tarefas2
+web: ./bin/mod
