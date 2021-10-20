@@ -28,7 +28,7 @@ func ExibirTarefas(c *gin.Context) {
 	// Trata possíveis exceções
 	if err != nil {
 		c.JSON(400, gin.H{
-			"error": "Not Found tarefas",
+			"error": "Json inválido",
 		})
 		// finaliza requisição com erro 400
 		return
@@ -46,108 +46,8 @@ func DetalheTarefa(c *gin.Context) {
 	// Verifica e converte o id em inteiro
 	newid, err := strconv.Atoi(id)
 	if err != nil {
-		c.JSON(404, gin.H{
-			"error": "Not Found",
-		})
-		return
-	}
-
-	// Banco
-	db := database.GetDatabase()
-
-	// instancia tarefa
-	var tarefa models.Tarefa
-	// retorna a primeira tarefa correspondente ao id
-	err = db.First(&tarefa, newid).Error
-	if err != nil {
-		c.JSON(404, gin.H{
-			"error": "Not Found",
-		})
-		return
-	}
-
-	c.JSON(200, tarefa)
-}
-
-// Cria nova tarefa
-func CriarTarefa(c *gin.Context) {
-	db := database.GetDatabase()
-
-	// Instancia nova tarefa
-	var tarefa models.Tarefa
-
-	// Realiza a leitura do objeto Json alterando os valores da tarefa
-	err := c.ShouldBindJSON(&tarefa)
-	if err != nil {
 		c.JSON(400, gin.H{
-			"error": "cannot bind JSON: " + err.Error(),
-		})
-		return
-	}
-
-	// Cria nova tarefa no banco
-	err = db.Create(&tarefa).Error
-
-	if err != nil {
-		c.JSON(400, gin.H{
-			"error": "cannot bind JSON: " + err.Error(),
-		})
-		return
-	}
-
-	// Retorna sucesso e um objeto com a nova tarefa
-	c.JSON(201, tarefa)
-}
-
-// Apaga uma tarefa pelo ID
-func DeletarTarefa(c *gin.Context) {
-	// id passado por parâmetro
-	id := c.Param("id")
-
-	// verifica id e converte para inteiro
-	newid, err := strconv.Atoi(id)
-
-	if err != nil {
-		c.JSON(404, gin.H{
-			"error": "Not Found",
-		})
-		return
-	}
-
-	db := database.GetDatabase()
-
-	err = db.First(&models.Tarefa{}, newid).Error
-	// procura e deleta do banco alguma tarefa com id igual
-	err = db.First(&models.Tarefa{}, newid).Error
-	if err != nil {
-		c.JSON(404, gin.H{
-			"error": "ID não existe",
-		})
-		return
-	}
-
-	err = db.Delete(&models.Tarefa{}, newid).Error
-	if err != nil {
-		c.JSON(404, gin.H{
-			"error": "Falha ao deletar Tarefa",
-		})
-		return
-	}
-
-	c.JSON(204, gin.H{
-		"SUCESSO": "Tarefa apagada",
-	})
-}
-
-func EditarTarefa(c *gin.Context) {
-	// Recebe o id pela url
-	id := c.Param("id")
-
-	// Verifica e converte o id em inteiro
-	newid, err := strconv.Atoi(id)
-	if err != nil {
-		c.JSON(404, gin.H{
-			"error": "id não existe",
+			"error": "Json inválido",
 		})
 		return
 	}
@@ -166,13 +66,113 @@ func EditarTarefa(c *gin.Context) {
 		return
 	}
 
+	c.JSON(200, tarefa)
+}
+
+// Cria nova tarefa
+func CriarTarefa(c *gin.Context) {
+	db := database.GetDatabase()
+
+	// Instancia nova tarefa
+	var tarefa models.Tarefa
+
+	// Realiza a leitura do objeto Json alterando os valores da tarefa
+	err := c.ShouldBindJSON(&tarefa)
+	if err != nil {
+		c.JSON(400, gin.H{
+			"error": "Não foi possível converter JSON: " + err.Error(),
+		})
+		return
+	}
+
+	// Cria nova tarefa no banco
+	err = db.Create(&tarefa).Error
+
+	if err != nil {
+		c.JSON(400, gin.H{
+			"error": "tarefa não pode ser criada: " + err.Error(),
+		})
+		return
+	}
+
+	// Retorna sucesso e um objeto com a nova tarefa
+	c.JSON(201, tarefa)
+}
+
+// Apaga uma tarefa pelo ID
+func DeletarTarefa(c *gin.Context) {
+	// id passado por parâmetro
+	id := c.Param("id")
+
+	// verifica id e converte para inteiro
+	newid, err := strconv.Atoi(id)
+
+	if err != nil {
+		c.JSON(400, gin.H{
+			"error": "Json inválido",
+		})
+		return
+	}
+
+	db := database.GetDatabase()
+
+	err = db.First(&models.Tarefa{}, newid).Error
+	// procura e deleta do banco alguma tarefa com id igual
+	err = db.First(&models.Tarefa{}, newid).Error
+	if err != nil {
+		c.JSON(404, gin.H{
+			"error": "Tarefa com ID "+ id + " não existe",
+		})
+		return
+	}
+
+	err = db.Delete(&models.Tarefa{}, newid).Error
+	if err != nil {
+		c.JSON(404, gin.H{
+			"error": "Falha ao deletar Tarefa: " + err.Error(),
+		})
+		return
+	}
+
+	c.JSON(200, gin.H{
+		"SUCESSO": "Tarefa apagada",
+	})
+}
+
+func EditarTarefa(c *gin.Context) {
+	// Recebe o id pela url
+	id := c.Param("id")
+
+	// Verifica e converte o id em inteiro
+	newid, err := strconv.Atoi(id)
+	if err != nil {
+		c.JSON(404, gin.H{
+			"error": "Json inválido",
+		})
+		return
+	}
+
+	// Banco
+	db := database.GetDatabase()
+
+	// instancia tarefa
+	var tarefa models.Tarefa
+	// retorna a primeira tarefa correspondente ao id
+	err = db.First(&tarefa, newid).Error
+	if err != nil {
+		c.JSON(404, gin.H{
+			"error": "Tarefa com id: "+id+" não existe",
+		})
+		return
+	}
+
 	var tarefa2 models.Tarefa
 
 	// Realiza a leitura do objeto Json alterando os valores da tarefa
 	err = c.ShouldBindJSON(&tarefa2)
 	if err != nil {
 		c.JSON(400, gin.H{
-			"error": "cannot bind JSON: " + err.Error(),
+			"error": "Não foi possível converter JSON: " + err.Error(),
 		})
 		return
 	}
@@ -185,7 +185,7 @@ func EditarTarefa(c *gin.Context) {
 
 	if err != nil {
 		c.JSON(400, gin.H{
-			"error": "cannot bind JSON: " + err.Error(),
+			"error": "Falha ao editar tarefa",
 		})
 		return
 	}

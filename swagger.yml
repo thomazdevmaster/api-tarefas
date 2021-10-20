@@ -31,14 +31,7 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                descricao:
-                  type: string
-                prazo:
-                  type: string
-                completa:
-                  type: boolean
+              $ref: "#/components/schemas/Tarefa"
       responses:
         201:
           description: "Sucesso"
@@ -69,6 +62,11 @@ paths:
               example: "Not Found"
     put:
       summary: Altera uma tarefa pelo id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Tarefa"
       responses:
         200:
           description: "Sucesso"
@@ -107,11 +105,14 @@ components:
           readOnly: true
         descricao:
           type: string
+          example: "Realizar tarefa"
         prazo:
           type: string
           format: date-time
+          example: "2021-10-20T13:20:49.795Z"
         completa:
           type: boolean
+          example: true
     Tarefas:
       type: array
       items:

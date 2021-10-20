@@ -2,7 +2,8 @@
 [![GoDoc](https://godoc.org/github.com/dgraph-io/dgo?status.svg)](https://godoc.org/github.com/dgraph-io/dgo)
 
 
-## [Documentação Swagger](https://app.swaggerhub.com/apis-docs/ThomazSIUFLA/API-TAREFAS-ThomazSIUFLA/1.0.1)
+## Documentação e testes
+[Documentação Swagger](https://app.swaggerhub.com/apis-docs/ThomazSIUFLA/API-TAREFAS-ThomazSIUFLA/1.0.1)
 
 ## [API- heroku](https://api-tarefas2.herokuapp.com/tarefas/)
 
