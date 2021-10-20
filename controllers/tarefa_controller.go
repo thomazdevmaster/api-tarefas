@@ -131,26 +131,53 @@ func DeletarTarefa(c *gin.Context) {
 }
 
 func EditarTarefa(c *gin.Context) {
-	db := database.GetDatabase()
+	// Recebe o id pela url
+	id := c.Param("id")
 
-	var tarefa models.Tarefa
-
-	err := c.ShouldBindJSON(&tarefa)
+	// Verifica e converte o id em inteiro
+	newid, err := strconv.Atoi(id)
 	if err != nil {
-		c.JSON(400, gin.H{
-			"error": "JSON inválido: " + err.Error(),
+		c.JSON(404, gin.H{
+			"error": "Not Found",
 		})
 		return
 	}
+
+	// Banco
+	db := database.GetDatabase()
+
+	// instancia tarefa
+	var tarefa models.Tarefa
+	// retorna a primeira tarefa correspondente ao id
+	err = db.First(&tarefa, newid).Error
+	if err != nil {
+		c.JSON(404, gin.H{
+			"error": "Not Found",
+		})
+		return
+	}
+
+	var tarefa2 models.Tarefa
+
+	// Realiza a leitura do objeto Json alterando os valores da tarefa
+	err = c.ShouldBindJSON(&tarefa2)
+	if err != nil {
+		c.JSON(400, gin.H{
+			"error": "cannot bind JSON: " + err.Error(),
+		})
+		return
+	}
+	tarefa2 = tarefa
 
 	err = db.Save(&tarefa).Error
 
 	if err != nil {
 		c.JSON(400, gin.H{
-			"error": "Não foi possível alterar a tarefa: " + err.Error(),
+			"error": "cannot bind JSON: " + err.Error(),
 		})
 		return
 	}
+
 
 	c.JSON(201, tarefa)
 
