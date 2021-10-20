@@ -125,7 +125,9 @@ func DeletarTarefa(c *gin.Context) {
 		return
 	}
 
-	c.JSON(204, "Sucesso no delete")
+	c.JSON(204, gin.H{
+		"Message":"Sucesso no delete",
+	})
 }
 
 func EditarTarefa(c *gin.Context) {
