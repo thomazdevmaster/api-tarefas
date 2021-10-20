@@ -2,10 +2,7 @@
 [![GoDoc](https://godoc.org/github.com/dgraph-io/dgo?status.svg)](https://godoc.org/github.com/dgraph-io/dgo)
 
 
-## Documentação e testes
-[Documentação Swagger](https://app.swaggerhub.com/apis-docs/ThomazSIUFLA/API-TAREFAS-ThomazSIUFLA/1.0.1)
 
-## [API- heroku](https://api-tarefas2.herokuapp.com/tarefas/)
 
 
 # API-TAREFAS
@@ -14,6 +11,15 @@
 * API-REST implementada utilizando GoLang, como resultado de um trabalho da disciplina **GCC129 - Sistemas Distribuídos** 
 * **Professor** Neumar Costa Malheiros
 
+### Documentação e testes
+É possível verificar a documentação e realizar testes utilizando o Swagger
+
+[![logo swagger](https://emojis.slackmojis.com/emojis/images/1582769394/7925/swagger.png?1582769394)Documentação Swagger](https://app.swaggerhub.com/apis-docs/ThomazSIUFLA/API-TAREFAS-ThomazSIUFLA/1.0.1)
+
+### API-Disponível
+A API encontra-se disponível e livre para uso no heroku
+
+## [ ![logo heroku](https://emojis.slackmojis.com/emojis/images/1465929657/511/heroku.png?1465929657) API- heroku](https://api-tarefas2.herokuapp.com/tarefas/)
 
 ## Como executar
 
@@ -53,6 +59,7 @@ cd api-tarefas-ThomazSIUFLA
 
 ```go
 go mod init
+go mod tidy
 ```
 > Obs. Se receber o erro `go: modules disabled by GO111MODULE=off; see 'go help modules'` execute `export GO111MODULE=on` e torne executar o comando 
 ```go
@@ -60,10 +67,13 @@ go mod init
 ```
 
 3- Execute o comando para executar o servidor
+
 ```go
 go run main.go
 ```
 
-## Implementação
+3.1- Build do projeto
 
-
+```go
+go build
+```
