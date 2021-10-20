@@ -9,13 +9,13 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func Inicio(c *gin.Context){
+func Inicio(c *gin.Context) {
 	// Banco
 	fmt.Printf("c: %v\n", c)
 }
 
 // Exibe todas as tarefas
-func ExibirTarefas(c *gin.Context){
+func ExibirTarefas(c *gin.Context) {
 	// Banco
 	db := database.GetDatabase()
 
@@ -26,7 +26,7 @@ func ExibirTarefas(c *gin.Context){
 	err := db.Find(&tarefas).Error
 
 	// Trata possíveis exceções
-	if err != nil{
+	if err != nil {
 		c.JSON(400, gin.H{
 			"error": "Not Found tarefas",
 		})
@@ -45,7 +45,7 @@ func DetalheTarefa(c *gin.Context) {
 
 	// Verifica e converte o id em inteiro
 	newid, err := strconv.Atoi(id)
-	if err != nil{
+	if err != nil {
 		c.JSON(404, gin.H{
 			"error": "Not Found",
 		})
@@ -59,7 +59,7 @@ func DetalheTarefa(c *gin.Context) {
 	var tarefa models.Tarefa
 	// retorna a primeira tarefa correspondente ao id
 	err = db.First(&tarefa, newid).Error
-	if err != nil{
+	if err != nil {
 		c.JSON(404, gin.H{
 			"error": "Not Found",
 		})
@@ -71,14 +71,14 @@ func DetalheTarefa(c *gin.Context) {
 
 // Cria nova tarefa
 func CriarTarefa(c *gin.Context) {
-	db:= database.GetDatabase()
+	db := database.GetDatabase()
 
 	// Instancia nova tarefa
 	var tarefa models.Tarefa
 
 	// Realiza a leitura do objeto Json alterando os valores da tarefa
 	err := c.ShouldBindJSON(&tarefa)
-	if err != nil{
+	if err != nil {
 		c.JSON(400, gin.H{
 			"error": "cannot bind JSON: " + err.Error(),
 		})
@@ -88,7 +88,7 @@ func CriarTarefa(c *gin.Context) {
 	// Cria nova tarefa no banco
 	err = db.Create(&tarefa).Error
 
-	if err != nil{
+	if err != nil {
 		c.JSON(400, gin.H{
 			"error": "cannot bind JSON: " + err.Error(),
 		})
@@ -96,18 +96,18 @@ func CriarTarefa(c *gin.Context) {
 	}
 
 	// Retorna sucesso e um objeto com a nova tarefa
-	c.JSON(201,tarefa)
+	c.JSON(201, tarefa)
 }
 
 // Apaga uma tarefa pelo ID
-func DeletarTarefa(c *gin.Context){
+func DeletarTarefa(c *gin.Context) {
 	// id passado por parâmetro
 	id := c.Param("id")
 
 	// verifica id e converte para inteiro
 	newid, err := strconv.Atoi(id)
 
-	if err != nil{
+	if err != nil {
 		c.JSON(404, gin.H{
 			"error": "Not Found",
 		})
@@ -118,21 +118,20 @@ func DeletarTarefa(c *gin.Context){
 
 	// procura e deleta do banco alguma tarefa com id igual
 	err = db.Delete(&models.Tarefa{}, newid).Error
-	if err != nil{
+	if err != nil {
 		c.JSON(404, gin.H{
 			"error": "Not Found",
 		})
 		return
 	}
 
-	c.Status(204)
+	c.JSON(204, "Sucesso no delete")
 }
 
-func EditarTarefa(c *gin.Context){
+func EditarTarefa(c *gin.Context) {
 	db := database.GetDatabase()
 
 	var tarefa models.Tarefa
-
 
 	err := c.ShouldBindJSON(&tarefa)
 	if err != nil {
