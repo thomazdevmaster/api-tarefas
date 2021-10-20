@@ -4,7 +4,7 @@ info:
   description: "API para controlar tarefas, resultado do trabalho da
   disciplina \n
   GCC129 - Sistemas Distribuídos UFLA 2021/1"
-  version: 1.0.0
+  version: 1.0.1
   contact:
     name: Thomaz Flanklin de Souza Jorge
     email: thomaz.jorge@estudante.ufla.br
@@ -12,7 +12,7 @@ info:
     name: "Licença: GPLv3"
     url: https://www.gnu.org/licenses/gpl-3.0.pt-br.html
 servers: 
-  - url: https://virtserver.swaggerhub.com/thomaz/tarefas/0.0.1
+  - url: https://api-tarefas2.herokuapp.com/
   - url: http://localhost:5000
 paths:
   /tarefas:
@@ -104,6 +104,7 @@ components:
           type: integer
           format: uint
           minimum: 1
+          readOnly: true
         descricao:
           type: string
         prazo:
@@ -115,4 +116,3 @@ components:
       type: array
       items:
         $ref: "#/components/schemas/Tarefa"
-    
